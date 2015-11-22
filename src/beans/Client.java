@@ -1,23 +1,18 @@
 package beans;
 
 public class Client {
-	private String idClient, nom, prénom, adresse, pays, tel, typeClient, refDouane,mdp;
-	
 
+	private String nom, prénom, adresse, pays, tel, typeClient, refDouane,mdp ; 
+	
+	private int idClient ;
+
+	
 	public String getMdp() {
 		return mdp;
 	}
 
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
-	}
-
-	public String getIdClient() {
-		return idClient;
-	}
-
-	public void setIdClient(String idClient) {
-		this.idClient = idClient;
 	}
 
 	public String getNom() {
@@ -76,12 +71,13 @@ public class Client {
 		this.refDouane = refDouane;
 	}
 
-	@Override
-	public String toString() {
-		return "Client [idClient=" + idClient + ", nom=" + nom + ", prénom="
-				+ prénom + ", adresse=" + adresse + ", pays=" + pays + ", tel="
-				+ tel + ", typeClient=" + typeClient + ", refDouane="
-				+ refDouane + "]";
+	public int getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
 	} 
 	
+
 }

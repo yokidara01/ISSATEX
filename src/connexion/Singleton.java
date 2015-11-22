@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class Singleton {
     private static Connection cn=null;
   
-    private String localDB = "jdbc:mysql://localhost/gpao";     
+    private String localDB = "jdbc:mysql://localhost/data_of";     
     private Singleton(){
         try{
         Class.forName("com.mysql.jdbc.Driver");
