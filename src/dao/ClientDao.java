@@ -12,6 +12,10 @@ import beans.Client;
 
 public class ClientDao {
 	
+	
+
+
+
 	public int inscription(Client c)
 	{
 		int result = 0 ;
@@ -85,7 +89,8 @@ public class ClientDao {
 	public Client login(String nom,String mdp)
 	{
 ResultSet res =null ; 
-		
+Client c = null ; 
+
 		try {
 			Connection cn = Singleton.getInstance() ;
 			Statement st  =cn.createStatement() ;
@@ -95,8 +100,12 @@ ResultSet res =null ;
 		if(res.next())
 		{
 			System.out.println("clienfound");
+			c=this.getClient(nom, mdp) ;
+			
+			
 		}else{
 			System.out.println("client NOOOT found");
+			
 			
 		}
 			
@@ -104,7 +113,7 @@ ResultSet res =null ;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return c;
 		
 		
 	}
@@ -113,7 +122,32 @@ ResultSet res =null ;
 
 	private Client getClient(String nom, String mdp) {
 		// TODO Auto-generated method stub
-		return null;
+		Client c = new Client() ; 
+		ResultSet res = null ;
+		Connection cn = Singleton.getInstance() ; 
+		try {
+			Statement st= cn.createStatement(); 
+			String req="select * from client where nom='"+nom+ "' and mdp='"+mdp+"'"  ;
+			System.out.println(req) ;
+			res =st.executeQuery(req);
+			while(res.next())
+			{
+			c.setAdresse(res.getString(4));
+			c.setIdClient(res.getInt("idClient"));
+			c.setMdp(res.getString("mdp"));
+			c.setNom(res.getString("nom"));
+			c.setPays(res.getString("pays"));
+			c.setPrénom(res.getString(3));
+			c.setRefDouane(res.getString("refdouane"));
+			c.setTel(res.getString("tel"));
+			c.setTypeClient("2");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return c;
 	}
 
 

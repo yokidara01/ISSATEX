@@ -20,9 +20,10 @@
 </div>
 <div class="input-group">
   <span class="input-group-addon" id="basic-addon1">Mot de Passe</span>
-  <input name="mdp" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+  <input name="mdp" type="password" class="form-control" placeholder="" aria-describedby="basic-addon1">
 </div>
  <a href="#" onclick="document.forms['form'].submit(); return false;" class="button-0">se connecter</a>
+<a href="Inscription.jsp"  class="button-0">s'inscrire</a>
 
 <style type="text/css">
 .button-0 {

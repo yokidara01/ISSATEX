@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sun.tools.ws.processor.model.Request;
 
 import dao.ClientDao;
+
 import beans.Client;
 
 /**
@@ -43,8 +44,17 @@ public class Login extends HttpServlet {
 		String nom =request.getParameter("nom");
 		String mdp = request.getParameter("mdp"); 
 		ClientDao cdao = new ClientDao() ; 
-		cdao.login(nom, mdp); 
-		
+		c=cdao.login(nom, mdp); 
+		java.io.PrintWriter out = response.getWriter();
+		if (c==null){
+
+			out.println("invalid client");	
+			
+		}else
+		{
+		request.getSession().setAttribute("client", c);
+		out.println("client conneté ");
+		}
 	}
 
 }
