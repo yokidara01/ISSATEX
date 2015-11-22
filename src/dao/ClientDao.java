@@ -84,12 +84,25 @@ public class ClientDao {
 	
 	public Client login(String nom,String mdp)
 	{
-		if(matchPassword(nom,mdp))
+ResultSet res =null ; 
+		
+		try {
+			Connection cn = Singleton.getInstance() ;
+			Statement st  =cn.createStatement() ;
+			String req="select * from client where nom='"+nom+ "' and mdp='"+mdp+"'"  ;
+			System.out.println(req) ;
+			res =st.executeQuery(req);
+		if(res.next())
 		{
-			System.out.println("client found!") ;
-			return getClient(nom,mdp) ;
+			System.out.println("clienfound");
+		}else{
+			System.out.println("client NOOOT found");
 			
+		}
 			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return null;
 		
