@@ -7,8 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.sun.tools.ws.processor.model.Request;
+import javax.websocket.Session;
 
 import dao.AdminDao;
 import dao.ClientDao;
@@ -66,6 +65,7 @@ public class Login extends HttpServlet {
 		  RequestDispatcher d=request.getRequestDispatcher("Index.jsp");
 			d.forward(request, response);
 		}*/
+		
 		Client c = new Client() ; 
 		String nom =request.getParameter("nom");
 		String mdp = request.getParameter("mdp"); 
@@ -77,20 +77,24 @@ public class Login extends HttpServlet {
 		AdminDao adao = new AdminDao() ;
 		admin=adao.login(nom,mdp);
 		RequestDispatcher da=request.getRequestDispatcher("Index.jsp");
+		
 		if (admin!=null)
 		{
-			request.getSession().setAttribute("admin",admin);
-			
+			request.getSession().setAttribute("Role","Admin");
+			request.getSession().setAttribute("Nom",nom);
 		
 		}
 		if(c!=null)
 		{
-			 request.getSession().setAttribute("user", c);
-			 
+			 request.getSession().setAttribute("Role","Utilisateur");
+			 request.getSession().setAttribute("Nom",nom);
 			
 				
 			
 		}
+		
+	
+			
 		
 		da.forward(request, response);
 		

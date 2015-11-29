@@ -15,23 +15,23 @@
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a href="Index.jsp">Home</a></li>
   <%
-  Client c = (Client) session.getAttribute("user");
-  
-  if (session.getAttribute("user")!=null)
+ 
+ 
+  if (session.getAttribute("Role")=="Utilisateur")
   {
 	  out.print("<li role='presentation'><a href='Profil.jsp'>Profil</a></li>") ;
 	  out.print("<li role='presentation'><a href='logout'>Deconnection</a></li>") ;
 	  
-	  out.print("<h2>Hello"+c.getNom()+"</h1>");
+	  out.print("<h2>Hello"+session.getAttribute("Nom")+"</h1>");
 	  
   } 
-  if(session.getAttribute("admin")!=null)
+  else if(session.getAttribute("Role")=="Admin")
   {
 	  out.print("<li role='presentation'><a href='Profil.jsp'>Profil</a></li>") ;
 	  out.print("<li role='presentation'><a href='AdminPanel.jsp'>Administration</a></li>") ;
 	  out.print("<li role='presentation'><a href='logout'>Deconnection</a></li>") ;
 	  
-	  out.print("<h2>Hello admin </h1>");
+	  out.print("<h2>Hello"+session.getAttribute("Nom")+"</h1>");
   }
   
   
@@ -39,15 +39,16 @@
   
   
   else{
-  %>
+	  
+ 
   
   
   
   
   
-  <li role="presentation"><a href="Inscription.jsp">Inscription</a></li>
-  <li role="presentation"><a href="Authentif.jsp">login</a></li>
-<%
+	  out.print("<li role='presentation'><a href='Inscription.jsp'>Inscription</a></li>");
+	  out.print("<li role='presentation'><a href='Authentif.jsp'>login</a></li>");
+
   }
 %>
   

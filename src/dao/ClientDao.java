@@ -7,8 +7,6 @@ import java.sql.Statement;
 
 import javax.servlet.http.HttpSession;
 
-import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion.Static;
-
 import connexion.Singleton;
 import beans.Client;
 

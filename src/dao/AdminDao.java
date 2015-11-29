@@ -26,12 +26,9 @@ ResultSet res =null ;
 			String req="select * from admin where nom='"+nom+ "' and mdp='"+mdp+"'"  ;
 			System.out.println(req) ;
 			res =st.executeQuery(req);
-				System.out.print(res.wasNull()+"********");
-		
-			if(res.wasNull()){
-				System.out.print("ADMIN NOT FOUND");
-				admin=null ;
-			}else 
+				
+if(res.next())
+			{
 			{
 				while(res.next())
 				{
@@ -43,6 +40,13 @@ ResultSet res =null ;
 				}
 				
 			}
+			}
+
+else
+{
+	System.out.print("ADMIN NOT FOUND");
+	admin=null ;
+}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
