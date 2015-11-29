@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sun.tools.ws.processor.model.Request;
 
+import dao.AdminDao;
 import dao.ClientDao;
-
+import beans.Admin;
 import beans.Client;
 
 /**
@@ -40,21 +42,58 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
+		java.io.PrintWriter out = response.getWriter();
+		/*if (c==null){
+
+			Admin admin = new Admin() ; 
+			AdminDao adao = new AdminDao() ;
+			admin=adao.login(nom,mdp);
+			if (admin==null)
+			{
+				RequestDispatcher d=request.getRequestDispatcher("AdminPanel.jsp");
+				d.forward(request, response);
+			}
+			request.getSession().setAttribute("admin",admin);
+			RequestDispatcher d=request.getRequestDispatcher("AdminPanel.jsp");
+			d.forward(request, response);
+			
+		}else
+		{
+		
+		
+		 request.getSession().setAttribute("user", c);
+		  RequestDispatcher d=request.getRequestDispatcher("Index.jsp");
+			d.forward(request, response);
+		}*/
 		Client c = new Client() ; 
 		String nom =request.getParameter("nom");
 		String mdp = request.getParameter("mdp"); 
 		ClientDao cdao = new ClientDao() ; 
 		c=cdao.login(nom, mdp); 
-		java.io.PrintWriter out = response.getWriter();
-		if (c==null){
-
-			out.println("invalid client");	
-			
-		}else
+		
+		
+		Admin admin = new Admin() ; 
+		AdminDao adao = new AdminDao() ;
+		admin=adao.login(nom,mdp);
+		RequestDispatcher da=request.getRequestDispatcher("Index.jsp");
+		if (admin!=null)
 		{
-		request.getSession().setAttribute("client", c);
-		out.println("client conneté ");
+			request.getSession().setAttribute("admin",admin);
+			
+		
 		}
+		if(c!=null)
+		{
+			 request.getSession().setAttribute("user", c);
+			 
+			
+				
+			
+		}
+		
+		da.forward(request, response);
+		
 	}
 
 }

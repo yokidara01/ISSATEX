@@ -39,4 +39,34 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addOF</display-name>
+    <servlet-name>addOF</servlet-name>
+    <servlet-class>controllers.addOF</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addOF</servlet-name>
+    <url-pattern>/addOF</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>preparerOF</display-name>
+    <servlet-name>preparerOF</servlet-name>
+    <servlet-class>controllers.preparerOF</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>preparerOF</servlet-name>
+    <url-pattern>/preparerOF</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>logout</display-name>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>controllers.logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -7,6 +7,8 @@ import java.sql.Statement;
 
 import javax.servlet.http.HttpSession;
 
+import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion.Static;
+
 import connexion.Singleton;
 import beans.Client;
 
@@ -177,4 +179,36 @@ Client c = null ;
 		return true ;	
 		
 		}
+	
+	
+	public Client getClientWithId(String id) {
+		// TODO Auto-generated method stub
+		Client c = new Client() ; 
+		ResultSet res = null ;
+		Connection cn = Singleton.getInstance() ; 
+		try {
+			Statement st= cn.createStatement(); 
+			String req="select * from client where idClient="+id  ;
+			System.out.println(req) ;
+			res =st.executeQuery(req);
+			while(res.next())
+			{
+			c.setAdresse(res.getString(4));
+			c.setIdClient(res.getInt("idClient"));
+			c.setMdp(res.getString("mdp"));
+			c.setNom(res.getString("nom"));
+			c.setPays(res.getString("pays"));
+			c.setPrénom(res.getString(3));
+			c.setRefDouane(res.getString("refdouane"));
+			c.setTel(res.getString("tel"));
+			c.setTypeClient("2");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return c;
+	}
+
 }
