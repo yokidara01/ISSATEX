@@ -69,4 +69,14 @@
     <servlet-name>logout</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertilot</display-name>
+    <servlet-name>insertilot</servlet-name>
+    <servlet-class>controllers.insertilot</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertilot</servlet-name>
+    <url-pattern>/insertilot</url-pattern>
+  </servlet-mapping>
 </web-app>

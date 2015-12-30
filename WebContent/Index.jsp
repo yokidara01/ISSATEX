@@ -28,7 +28,7 @@
   else if(session.getAttribute("Role")=="Admin")
   {
 	  out.print("<li role='presentation'><a href='Profil.jsp'>Profil</a></li>") ;
-	  out.print("<li role='presentation'><a href='AdminPanel.jsp'>Administration</a></li>") ;
+	  out.print("<li role='presentation'><a href='admin/AdminPanel.jsp'>Administration</a></li>") ;
 	  out.print("<li role='presentation'><a href='logout'>Deconnection</a></li>") ;
 	  
 	  out.print("<h2>Hello"+session.getAttribute("Nom")+"</h1>");

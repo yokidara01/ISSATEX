@@ -1,6 +1,6 @@
 package beans;
 
 public class Ilot {
- private String codeIlot, nbreEmployés, nbreMachinesString; 
+ public int codeIlot, nbreEmployés, nbreMachines; 
  
 }
