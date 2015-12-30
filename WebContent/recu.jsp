@@ -16,6 +16,7 @@ ClientDao dc = new ClientDao();
 Client c = dc.getClientWithId(of.getIdClient()); 
 
 %>
+<center>
 <div class="page-header">
   <h1>  Notification d’enregistrement<small>Votre demande a eté envoyer</small></h1>
  </div>
@@ -32,5 +33,14 @@ total= Integer.parseInt(of.getQteM())+Integer.parseInt(of.getQteL())+Integer.par
 <% String qa="pas de cout additionel" ;
 %>
 <b>Coût Additionnel sur l'ordre :<%=qa %></b><br>
+<br>
+<button onclick="myFunction()">Imprimer</button>
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+</center>
 </body>
 </html>

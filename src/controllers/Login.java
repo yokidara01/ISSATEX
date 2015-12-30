@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.Session;
+
 
 import dao.AdminDao;
 import dao.ClientDao;
@@ -75,20 +75,30 @@ public class Login extends HttpServlet {
 		
 		Admin admin = new Admin() ; 
 		AdminDao adao = new AdminDao() ;
-		admin=adao.login(nom,mdp);
+		//admin=adao.login(nom,mdp);
 		RequestDispatcher da=request.getRequestDispatcher("Index.jsp");
 		
-		if (admin!=null)
+		/*if (admin!=null)
 		{
 			request.getSession().setAttribute("Role","Admin");
 			request.getSession().setAttribute("Nom",nom);
 		
-		}
+		}*/
 		if(c!=null)
 		{
+			
+			if(c.getNom().equals("admin"))
+			{
+				request.getSession().setAttribute("Role","Admin");
+				request.getSession().setAttribute("Nom",nom);
+				 System.out.println("***********************in login id : "+c.getIdClient());
+				request.getSession().setAttribute("id", c.getIdClient());
+			}else{
 			 request.getSession().setAttribute("Role","Utilisateur");
 			 request.getSession().setAttribute("Nom",nom);
-			
+			 System.out.println("***********************in login id : "+c.getIdClient());
+			 request.getSession().setAttribute("id", c.getIdClient());
+			}
 				
 			
 		}

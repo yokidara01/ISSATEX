@@ -9,9 +9,6 @@
 </head>
 <body>
 AdminPanle
-<%Admin a = new Admin(); 
-a= (Admin) session.getAttribute("admin");
-%>
-<h2><%=a.getNom() %></h2>
+
 </body>
 </html>

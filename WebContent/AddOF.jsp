@@ -1,3 +1,4 @@
+<%@page import="dao.ClientDao"%>
 <%@page import="java.util.Date"%>
 <%@page import="beans.Article"%>
 <%@page import="java.util.ArrayList"%>
@@ -5,7 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE>
-<html>
+<html style="background-color: gray;">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -30,7 +31,15 @@ function test() {
 
 </head>
 <body>
- <% Client c = (Client) session.getAttribute("user");%>
+<center>
+ <%  
+ Client c  ; 
+  ClientDao cdao  = new ClientDao(); 
+
+  c=cdao.getClientWithId(session.getAttribute("id")+"") ;
+  
+  
+ %>
 <form action="addOF" method="post">
 Saisie OF 
 Client Authentifié : 
@@ -63,7 +72,7 @@ for(Article b : ar)
  <input type="submit" value="Soummetre OF">
  <input type="reset" value="Annuler">
  </form>
-
+</center>
 </body>
 
 </html>

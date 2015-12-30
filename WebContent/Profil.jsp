@@ -15,32 +15,50 @@
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a href="Index.jsp">Home</a></li>
   <%
-  Client c = (Client) session.getAttribute("user");
-  
-  if (session.getAttribute("user")!=null)
+ 
+  //System.out.println("***********************session attribut id : "+(String) session.getAttribute("id"));
+  if (session.getAttribute("Role")=="Utilisateur")
   {
 	  out.print("<li role='presentation'><a href='Profil.jsp'>Profil</a></li>") ;
-	  out.print("<li role='presentation'><a href='logout.jsp'>Deconnection</a></li>") ;
+	  out.print("<li role='presentation'><a href='logout'>Deconnection</a></li>") ;
 	  
-	  out.print("<h2>Hello"+c.getNom()+"</h1>");
+	  out.print("<h2>Hello"+session.getAttribute("Nom")+"</h1>");
 	  
-  } else{
-  %>
-  <li role="presentation"><a href="Inscription.jsp">Inscription</a></li>
-  <li role="presentation"><a href="Authentif.jsp">login</a></li>
-<%
+  } 
+  else if(session.getAttribute("Role")=="Admin")
+  {
+	  out.print("<li role='presentation'><a href='Profil.jsp'>Profil</a></li>") ;
+	  out.print("<li role='presentation'><a href='AdminPanel.jsp'>Administration</a></li>") ;
+	  out.print("<li role='presentation'><a href='logout'>Deconnection</a></li>") ;
+	  
+	  out.print("<h2>Hello"+session.getAttribute("Nom")+"</h1>");
+  }
+  
+  
+  
+  
+  
+  else{
+	  
+ 
+  
+  
+  
+  
+  
+	  out.print("<li role='presentation'><a href='Inscription.jsp'>Inscription</a></li>");
+	  out.print("<li role='presentation'><a href='Authentif.jsp'>login</a></li>");
+
   }
 %>
-  
 </ul>
-
 </header>
 <%
-if (session.getAttribute("user")!=null)
+if (true)
   { %>
   
 <a href="preparerOF" class="navbar-link">creé une ordre de fabrication </a><br>
-<%if(c.getTypeClient().equals("2")) {
+<%if(true) {
 %>
 <a href="AddOFUrgent" class="navbar-link">creé une ordre de fabrication Urgent </a><br>
 <%} %>
