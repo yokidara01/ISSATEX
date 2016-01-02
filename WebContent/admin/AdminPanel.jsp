@@ -138,7 +138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-  CONTENT 
+<center><img src="../logo.png"></center>
       </div><!-- /.content-wrapper -->
 
       <!-- Main Footer -->
