@@ -47,15 +47,15 @@ public int getEstimatedTime(int refof)
 		Statement st = cn.createStatement() ;
 		String req = "select * from of where refof="+refof;
 		
-		System.out.println(req);
+		//System.out.println(req);
 	resultof = st.executeQuery(req);
 	resultof.next();
-	System.out.println("reference article of that of is  = "+resultof.getInt("refart"));
+	//System.out.println("reference article of that of is  = "+resultof.getInt("refart"));
 
 	String req2="" ;
 	try {
 	 req2= "select * from article where refart="+resultof.getInt("refart") ;
-	 System.out.println(req2) ; 
+	// System.out.println(req2) ; 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -73,7 +73,7 @@ public int getEstimatedTime(int refof)
 	
 	try {
 		resultart.next(); 
-		 System.out.println("temp unitaire " +resultart.getInt("tempsunitaire")+"") ;
+		// System.out.println("temp unitaire " +resultart.getInt("tempsunitaire")+"") ;
 		 
 		// System.out.println("qté M"+resultof.getString("QteM")) ;
 		tempArticle=resultart.getInt("tempsunitaire")*resultof.getInt(7)+resultart.getInt("tempsunitaire")*resultof.getInt(8)+resultart.getInt("tempsunitaire")*resultof.getInt(6) ;

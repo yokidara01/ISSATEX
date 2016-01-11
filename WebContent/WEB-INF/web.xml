@@ -79,4 +79,34 @@
     <servlet-name>insertilot</servlet-name>
     <url-pattern>/insertilot</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>planning</display-name>
+    <servlet-name>planning</servlet-name>
+    <servlet-class>controllers.planning</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>planning</servlet-name>
+    <url-pattern>/planning</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deletilot</display-name>
+    <servlet-name>deletilot</servlet-name>
+    <servlet-class>controllers.deletilot</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletilot</servlet-name>
+    <url-pattern>/deletilot</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>modifierilot</display-name>
+    <servlet-name>modifierilot</servlet-name>
+    <servlet-class>controllers.modifierilot</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modifierilot</servlet-name>
+    <url-pattern>/modifierilot</url-pattern>
+  </servlet-mapping>
 </web-app>

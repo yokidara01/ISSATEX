@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                <li class="active"><a href="validerArticle.jsp"><span>valider</span></a>  </li>
               <li class="header">gerer les ilots</li>
               <li class="active"><a href="addilot.jsp"><span>creer</span></a></li>
-              <li class="active"><a href="modifierilot.jsp"><span>modifier</span></a></li>
+              <li class="active"><a href="../modifierilot"><span>modifier</span></a></li>
                <li class="active"><a href="deleteilot.jsp"><span>supprimer</span></a></li>
                 <li class="header">Planification</li>
               <li class="active"><a href="planifier.jsp"><span>Planifier pour cette semaine</span></a></li>

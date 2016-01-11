@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -94,7 +95,8 @@ public class insertilot extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
+		RequestDispatcher d=request.getRequestDispatcher("/admin/AdminPanel.jsp");
+		d.forward(request, response);
 	}
 
 }

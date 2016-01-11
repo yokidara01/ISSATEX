@@ -172,8 +172,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	
 	
  %>
- <form action="deletilot" method="post">
- <select  size="<%=li.size()%>">
+ <form action="../deletilot" method="post">
+ <select  size="<%=li.size()%>" name="codeilot">
  <%for(Ilot i: li){ %>
  <option value="<%=i.codeIlot%>"><%=i.codeIlot %></option>
  

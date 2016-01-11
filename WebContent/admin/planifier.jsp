@@ -159,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
-			<form action="../planning" methode="post">
+			<form method="post" action="../planning" >
 				<p>chaque ilot a un temp de travail de 8 heurs maximum , chaque
 					OF / OFur aura le minimum des liste des ilot pour les affecter .
 					vueillez choisire les ilot correspondant a chaque OF / OFur</p>
@@ -212,28 +212,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	}
 	int i = 1;
 	OFDao ofdao = new OFDao() ; 
-	
+	%>
+	<input type='hidden' name='sizeof' value='<%=lof.size()%>'>
+	<%
 for(OF of : lof)
 {	
 		%>
 
 				<% 
 	
-	out.println("<input type='hidden' name='iof' value='"+i+"'>");
+	out.println("<input type='hidden' name='iof"+i+"' value='"+i+"'>");
+				out.println("<input type='hidden' name='refof"+i+"' value='"+of.getRefOF()+"'>");
 	 out.println("<p>Réference de OF : "+of.getRefOF()+" temp total estimé : "+"<div id='esttime"+i+"'>"+ofdao.getEstimatedTime(Integer.parseInt(of.getRefOF()))+"</div>"+"</p>"+" selectionné les ilot pour ce OF : idIlot=<br> ");
+		i++;
 	 for(int r = 1; r <= ofdao.getMinTeamRequired(Integer.parseInt(of.getRefOF()))/60; r++)
 	
 	 {
 		 
 		 
-	 				out.println(" - <select>") ;
+	 				out.println(" - <select name='"+"ilot"+of.getRefOF()+"-"+r+"'>") ;
 					for(Ilot ilot : li)
 					{
-						 out.println( "<option value='"+ilot.codeIlot+"' name='"+"ilot"+of.getRefOF()+"-"+r+"'>"+ilot.codeIlot+"</option>");
+						 out.println( "<option value='"+ilot.codeIlot+"' >"+ilot.codeIlot+"</option>");
 					}
 					
 					out.print("</select>"+" ~ ");
-					i++;
+				
 					}
 	 
 }
